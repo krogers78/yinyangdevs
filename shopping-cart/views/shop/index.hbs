@@ -1,0 +1,30 @@
+<div class="splash animation-target">
+  <h1 class="jumbotron">Welcome to WD6 International!</h1>
+  <p class="continue">Continue to page <i class="fa fa-arrow-right" aria-hidden="true"></i></p>
+</div>
+<div class="main">
+  {{# each products }}
+    <div class="row">
+      {{# each this }}
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <img class="img-respon" src="{{this.imagePath}}" alt="...">
+            <div class="caption">
+              <h3>{{this.title}}</h3>
+              {{!-- <p class="description">{{this.description}}</p> --}}
+              <div class="clearfix">
+                <div class="price pull-left">${{this.price}}</div>
+                <a href="#" class="btn btn-success pull-right" role="button">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{/each}}
+</div>
+<script src="/javascripts/index.js"></script>
+
+<script>
+
+</script>
