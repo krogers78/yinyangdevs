@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 let expressHbs = require('express-handlebars');
 let mongoose = require('mongoose');
 
+// test merge
+
 var index = require('./routes/index');
 // var splash = require('./routes/splash');
 
