@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
     for (let i = 0; i < docs.length; i += chunksSize) {
       productChunks.push(docs.slice(i, i+chunksSize));
     }
-    res.render('shop/index', { title: 'Express', products: productChunks });
+    res.render('shop/index', { title: 'WD6-International', products: productChunks });
 
   });
 });
