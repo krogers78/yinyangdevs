@@ -1,7 +1,7 @@
-<div class="splash animation-target">
+{{!-- <div class="splash animation-target">
   <h1 class="jumbotron">Welcome to WD6 International!</h1>
   <p class="continue">Continue to page <i class="fa fa-arrow-right" aria-hidden="true"></i></p>
-</div>
+</div> --}}
 <div class="main">
   {{# each products }}
     <div class="row">
@@ -11,10 +11,9 @@
             <img class="img-respon" src="{{this.imagePath}}" alt="...">
             <div class="caption">
               <h3>{{this.title}}</h3>
-              {{!-- <p class="description">{{this.description}}</p> --}}
               <div class="clearfix">
                 <div class="price pull-left">${{this.price}}</div>
-                <a href="#" class="btn btn-success pull-right" role="button">Add to Cart</a>
+                <a href="/add-to-cart/{{ this._id }}" class="btn btn-success pull-right" role="button">Add to Cart</a>
               </div>
             </div>
           </div>
