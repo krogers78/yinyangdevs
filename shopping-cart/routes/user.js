@@ -39,6 +39,23 @@ router.post('/signin', passport.authenticate('local.signin', {
   failureRedirect: '/user/signin',
   failureFlash: true
 }));
+router.get('/twitter',
+  passport.authenticate('twitter'));
+
+router.get('/twitter/return',
+  passport.authenticate('twitter', { 
+    failureRedirect: '/user/signin' 
+  }),
+  function (req, res) {
+    res.redirect('/user/profile');
+  });
+
+router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+
+router.get('/google/return', passport.authenticate('google', {
+  successRedirect: '/user/profile',
+  failureRedirect: '/user/signin',
+}));
 
 module.exports = router;
 
