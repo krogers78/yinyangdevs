@@ -44,6 +44,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
   res.locals.login = req.isAuthenticated();
+  if (req.user) {
+    if (req.user.email === 'admin@test.com') {
+      res.locals.admin = true;
+    }
+  }
   res.locals.session = req.session;
   next();
 })

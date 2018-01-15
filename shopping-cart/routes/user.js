@@ -14,6 +14,11 @@ router.get('/logout', isLoggedIn, (req, res, next) => {
   res.redirect('/')
 });
 
+router.get('/admin', adminCheck, (req, res, next) => {
+  // console.log(res)
+  res.render('user/cms');
+})
+
 router.use('/', notLoggedIn, (req, res, next) => {
   next()
 })
@@ -50,6 +55,12 @@ function isLoggedIn(req, res, next) {
 }
 function notLoggedIn(req, res, next) {
   if (!req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/');
+}
+function adminCheck(req, res, next) {
+  if (req.isAuthenticated() && req.user.email === 'admin@test.com') {
     return next();
   }
   res.redirect('/');
