@@ -39,6 +39,16 @@ router.post('/signin', passport.authenticate('local.signin', {
   failureRedirect: '/user/signin',
   failureFlash: true
 }));
+router.get('/twitter',
+  passport.authenticate('twitter'));
+
+router.get('/twitter/return',
+  passport.authenticate('twitter', { 
+    failureRedirect: '/user/signin' 
+  }),
+  function (req, res) {
+    res.redirect('127.0.0.1:3000/user/profile');
+  });
 
 module.exports = router;
 
