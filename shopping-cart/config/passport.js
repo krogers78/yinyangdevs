@@ -2,10 +2,6 @@ const passport = require('passport');
 const User = require('../models/user');
 const LocalStrategy = require('passport-local').Strategy;
 var TwitterStrategy = require('passport-twitter').Strategy;
-<<<<<<< HEAD
-=======
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
->>>>>>> google+
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -104,36 +100,4 @@ passport.use("twitter", new TwitterStrategy({
         }
       });
     });
-<<<<<<< HEAD
-=======
-  }));
-passport.use("google", new GoogleStrategy({
-  clientID: "321881043246-3f3t4t4rjle9eo1ti1kra46rb31h8stv.apps.googleusercontent.com",
-  clientSecret: "uBmNy1se2YHsQYpmzd8zWcBp",
-  callbackURL: "http://localhost:3000/user/google/return",
-},
-  function (token, refreshToken, profile, done) {
-    console.log(profile);
-    
-    process.nextTick(function () {
-      User.findOne({ 'google.id': profile.id }, function (err, user) {
-        if (err)
-          return done(err);
-        if (user) {
-          return done(null, user);
-        } else {
-          var newUser = new User();
-          newUser.google.id = profile.id;
-          newUser.google.token = token;
-          newUser.google.name = profile.displayName;
-          newUser.google.email = profile.displayName;
-          newUser.save(function (err) {
-            if (err)
-              throw err;
-            return done(null, newUser);
-          });
-        }
-      });
-    });
->>>>>>> google+
   }));
