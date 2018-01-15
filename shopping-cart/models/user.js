@@ -12,7 +12,17 @@ const userSchema = new Schema({
     token: String,
     displayName: String,
     username: String,
+<<<<<<< HEAD
   }
+=======
+  },
+  google: {
+    id: String,
+    token: String,
+    email: String,
+    name: String,
+  },
+>>>>>>> google+
 });
 
 // var userSchema = mongoose.Schema({
