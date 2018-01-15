@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <form action="/inventory/edit-form/save" method="POST">
+      <p class="form-group">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" class="form-control" value="{{product.title}}">
+      </p>
+      <p class="form-group">
+        <label for="description">Description</label>
+        <p><textarea name="description" id="description" cols="50" rows="8" class="form-control">{{product.description}}</textarea></p>
+      </p>
+      <p class="form-group">
+        <label for="price">Price</label>
+        <input type="number" name="price" id="price" class="form-control" value="{{product.price}}">
+      </p>
+      <p class="form-group">
+        <label for="imgPath">Image Path</label>
+        <input type="text" name="imgPath" id="imgPath" class="form-control" value="{{product.imagePath}}">
+      </p>
+      <input type="hidden" name="productId" id="id" value="{{product._id}}">
+      <input type="submit" class="btn btn-primary" value="Save">
+    </form>
+  </div>
+</div>

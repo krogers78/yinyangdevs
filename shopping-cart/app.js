@@ -44,8 +44,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
   res.locals.login = req.isAuthenticated();
+  // checking if the user is an admin
   if (req.user) {
-    if (req.user.email === 'admin@test.com') {
+    if (req.user.admin === 1) {
       res.locals.admin = true;
     }
   }
