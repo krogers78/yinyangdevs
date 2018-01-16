@@ -11,6 +11,7 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const validator = require('express-validator');
 const MongoStore = require('connect-mongo')(session);
+const fileUpload = require('express-fileupload');
 
 const index = require('./routes/index');
 const userRoutes = require('./routes/user');
@@ -41,6 +42,7 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileUpload());
 
 app.use(function(req, res, next) {
   res.locals.login = req.isAuthenticated();
