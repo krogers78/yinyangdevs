@@ -12,9 +12,6 @@ const userSchema = new Schema({
     token: String,
     displayName: String,
     username: String,
-<<<<<<< HEAD
-  }
-=======
   },
   google: {
     id: String,
@@ -22,7 +19,6 @@ const userSchema = new Schema({
     email: String,
     name: String,
   },
->>>>>>> google+
 });
 
 // var userSchema = mongoose.Schema({

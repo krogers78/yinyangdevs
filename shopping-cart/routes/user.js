@@ -47,10 +47,6 @@ router.get('/twitter/return',
     failureRedirect: '/user/signin' 
   }),
   function (req, res) {
-<<<<<<< HEAD
-    res.redirect('127.0.0.1:3000/user/profile');
-  });
-=======
     res.redirect('/user/profile');
   });
 
@@ -60,7 +56,6 @@ router.get('/google/return', passport.authenticate('google', {
   successRedirect: '/user/profile',
   failureRedirect: '/user/signin',
 }));
->>>>>>> google+
 
 module.exports = router;
 
