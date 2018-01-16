@@ -21,40 +21,13 @@ const userSchema = new Schema({
   },
 });
 
-// var userSchema = mongoose.Schema({
-//   local: {
-//     name: String,
-//     email: String,
-//     password: String,
-//   },
-//   facebook: {
-//     id: String,
-//     token: String,
-//     email: String,
-//     name: String,
-//     username: String,
-//   },
-//   twitter: {
-//     id: String,
-//     token: String,
-//     displayName: String,
-//     username: String,
-//   },
-//   google: {
-//     id: String,
-//     token: String,
-//     email: String,
-//     name: String,
-//   },
-// });
-
-userSchema.methods.encryptPassword = function(password) {
-  console.log('schema',password);
+userSchema.methods.encryptPassword = function (password) {
+  console.log('schema', password);
   return bcrypt.hashSync(password, bcrypt.genSaltSync(5), null);
 };
-userSchema.methods.validPassword = function(password) {
-  console.log('schema',password);
-  
+userSchema.methods.validPassword = function (password) {
+  console.log('schema', password);
+
   return bcrypt.compareSync(password, this.local.password);
 };
 
