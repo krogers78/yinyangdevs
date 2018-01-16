@@ -3,6 +3,8 @@ const router = express.Router();
 const csrf = require('csurf');
 const passport = require('passport');
 
+const Product = require('../models/product');
+
 let csrfProtection = csrf();
 router.use(csrfProtection);
 
@@ -14,9 +16,20 @@ router.get('/logout', isLoggedIn, (req, res, next) => {
   res.redirect('/')
 });
 
+router.get('/admin', adminCheck, (req, res, next) => {
+  Product.find((err, docs) => {
+    let productChunks = [];
+    let chunksSize = 3;
+    for (let i = 0; i < docs.length; i += chunksSize) {
+      productChunks.push(docs.slice(i, i + chunksSize));
+    }
+    res.render('admin/cms', { title: 'Inventory', products: productChunks });
+  });
+})
+
 router.use('/', notLoggedIn, (req, res, next) => {
   next()
-})
+});
 
 router.get('/signup', (req, res, next) => {
   let messages = req.flash('error');
@@ -67,6 +80,12 @@ function isLoggedIn(req, res, next) {
 }
 function notLoggedIn(req, res, next) {
   if (!req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/');
+}
+function adminCheck(req, res, next) {
+  if (req.isAuthenticated() && req.user.local.admin === 1) {
     return next();
   }
   res.redirect('/');
