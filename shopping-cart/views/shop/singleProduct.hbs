@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-xs-12 col-md-8">
+    <h1 class="my-5">{{product.title}}</h1>
+    <p>{{product.description}}</p>
+    <p><strong>${{product.price}}</strong></p>
+    <a href="/add-to-cart/{{ product._id }}" class="btn btn-success pull-right" role="button">Add to Cart</a>
+
+  </div>
+  <div class="col-xs-6 col-md-4">
+    <img src="{{product.imagePath}}" alt="{{product.title}}" style="max-height:450px">
+  </div>
+</div>

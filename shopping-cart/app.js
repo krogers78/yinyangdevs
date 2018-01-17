@@ -15,6 +15,7 @@ const fileUpload = require('express-fileupload');
 
 const index = require('./routes/index');
 const userRoutes = require('./routes/user');
+const inventory = require('./routes/inventory');
 
 var app = express();
 
@@ -46,7 +47,6 @@ app.use(fileUpload());
 
 app.use(function(req, res, next) {
   res.locals.login = req.isAuthenticated();
-  console.log(req)
   // checking if the user is an admin
   if (req.user) {
     if (req.user.local.admin === 1) {
@@ -57,6 +57,7 @@ app.use(function(req, res, next) {
   next();
 })
 
+app.use('/inventory', inventory);
 app.use('/user', userRoutes);
 app.use('/', index);
 
