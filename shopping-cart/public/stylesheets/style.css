@@ -2395,5 +2395,11 @@ a.item_add p.number {
 }
 .file {
   visibility: hidden;
-  position: absolute;
+	position: absolute;
+}
+.memenu>li.active>a {
+	color: #c54949;
+}
+.b-from-left{
+	background: rgba(197, 73, 73,0.64)
 }
