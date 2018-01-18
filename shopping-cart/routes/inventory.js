@@ -70,7 +70,7 @@ router.post('/add-new/save', (req, res, next) => {
   }
 });
 
-module.exports= router;
+module.exports = router;
 
 // Helper function to restrict for admin use
 function adminCheck(req, res, next) {

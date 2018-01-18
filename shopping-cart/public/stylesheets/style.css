@@ -2396,6 +2396,10 @@ a.item_add p.number {
 	margin: 0.3em 0 1em;
 	color: #fff;
 }
+.file {
+  visibility: hidden;
+	position: absolute;
+}
 .memenu>li.active>a {
 	color: #c54949;
 }
