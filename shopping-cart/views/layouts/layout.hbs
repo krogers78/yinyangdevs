@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{title}}</title>
-    <script src="https://use.fontawesome.com/c4d1e1b178.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+<head>
+  <title>{{title}}</title>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="../javascripts/jquery.min.js"></script>
+  <!-- Custom Theme files -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+  <!--fonts-->
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+  <!--//fonts-->
+  <!-- start menu -->
+  <script type="text/javascript" src="../javascripts/memenu.js"></script>
+  {{!-- <script>$(document).ready(function () { $(".memenu").memenu(); });</script> --}}
+  <script src="../javascripts/simpleCart.min.js"> </script>
+  <link href="../stylesheets/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="../stylesheets/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="../stylesheets/memenu.css" rel="stylesheet" type="text/css" media="all" />
+</head>
   <body>
     {{> header}}
-    <div class="container">
       {{{body}}}
+    <div class="container">
     </div>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"crossorigin="anonymous"></script>
+    {{!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script> --}}
+    {{!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"crossorigin="anonymous"></script> --}}
   </body>
 </html>

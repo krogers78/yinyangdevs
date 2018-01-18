@@ -1,0 +1,73 @@
+/* body */
+body{
+  /* background-color: #F7F7FF; */
+}
+/* nav */
+.navbar{
+  border-radius: 0px;
+}
+.navbar-default .navbar-brand{
+  color: #F7F7FF;
+}
+.navbar-default .navbar-nav>li>a{
+  color: #F7F7FF;
+}
+.navbar-default{
+  background-color: #60656F;
+  border: none;
+}
+
+/* thumbnails */
+.thumbnail{
+  /* background-color:#C49991; */
+  border: none;
+}
+
+
+.thumbnail img {
+  max-height: 250px;
+}
+.thumbnail .description {
+  color: #7f7f7f;
+}
+.price {
+  font-weight: bold;
+  font-size: 16px;
+}
+/* .main {
+  display: none;
+} */
+.jumbotron {
+  background-image: url('../images/background.jpg');
+  color: #F7F7FF;
+}
+/* FOR THE FILE UPLOAD STYLING */
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 999px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  background: red;
+  cursor: inherit;
+  display: block;
+}
+input[readonly] {
+  background-color: white !important;
+  cursor: text !important;
+}
+
+
+
+.file {
+  visibility: hidden;
+  position: absolute;
+}

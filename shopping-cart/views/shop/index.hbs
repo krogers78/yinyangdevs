@@ -1,29 +1,96 @@
-{{!-- <div class="splash animation-target">
-  <h1 class="jumbotron">Welcome to WD6 International!</h1>
-  <p class="continue">Continue to page <i class="fa fa-arrow-right" aria-hidden="true"></i></p>
-</div> --}}
-<div class="main">
+<div class="banner">
+  <div class="container">
+    <script src="./javascripts/responsiveslides.min.js"></script>
+    <!-- <script>
+    $(function () {
+      $("#slider").responsiveSlides({
+      	auto: true,
+      	nav: true,
+      	speed: 500,
+        namespace: "callbacks",
+        pager: true,
+      });
+    });
+  </script> -->
+    <div id="top" class="callbacks_container">
+      <ul class="rslides" id="slider">
+        <li>
+
+          <div class="banner-text">
+            <h3>Tech For The Technical</h3>
+            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+              literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor .</p>
+            {{!-- <a href="single.html">Learn More</a> --}}
+          </div>
+
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+{{!-- <div class="main">
+  <h2>Featured Phones</h2>
   {{# each products }}
-    <div class="row">
-      {{# each this }}
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <img class="img-respon" src="{{this.imagePath}}" alt="...">
-            <div class="caption">
-              <h3>{{this.title}}</h3>
-              <div class="clearfix">
-                <div class="price pull-left">${{this.price}}</div>
-                <a href="/add-to-cart/{{ this._id }}" class="btn btn-success pull-right" role="button">Add to Cart</a>
-              </div>
-            </div>
+  <div class="row">
+    {{# each this }}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img class="img-respon" src="{{this.imagePath}}" alt="...">
+        <div class="caption">
+          <h3>{{this.title}}</h3>
+          <div class="clearfix">
+            <div class="price pull-left">${{this.price}}</div>
+            <a href="/add-to-cart/{{ this._id }}" class="btn btn-success pull-right" role="button">Add to Cart</a>
           </div>
         </div>
-      {{/each}}
+      </div>
     </div>
+    {{/each}}
+  </div>
   {{/each}}
 </div>
-<script src="/javascripts/index.js"></script>
+<script src="./javascripts/index.js"></script> --}}
 
-<script>
 
-</script>
+
+
+
+<div class="content">
+  <div class="container">
+    <div class="content-top">
+      <h1>NEW RELEASED</h1>
+      <div class="grid-in">
+   {{# each products }}
+       {{# each this }}
+
+
+        <div class="col-md-4 grid-top">
+          <a href="/" class="b-link-stripe b-animate-go  thickbox">
+            <img class="img-responsive img-respon" src="{{this.imagePath}}" alt="">
+            <div class="b-wrapper">
+              <h3 class="b-animate b-from-left    b-delay03 ">
+                <span>${{this.price}}</span>
+              </h3>
+            </div>
+          </a>
+
+
+          <p>
+            <a href="single.html">{{this.title}}</a>
+          </p>
+        </div>
+
+     {{/each}}
+   {{/each}}
+</div>
+</div>
+  </div>
+  </div>
+
+
+
+
+
+
