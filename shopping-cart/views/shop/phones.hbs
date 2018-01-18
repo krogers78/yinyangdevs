@@ -1,0 +1,24 @@
+<div class="content">
+  <div class="container">
+    <div class="content-top">
+      <h1>NEW RELEASED</h1>
+      <div class="grid-in">
+        {{# each products }} {{# each this }}
+        <div class="col-md-4 grid-top">
+          <a href="/description/{{this._id}}" class="b-link-stripe b-animate-go  thickbox">
+            <img class="img-responsive img-respon" src="{{this.imagePath}}" alt="{{this.title}}">
+            <div class="b-wrapper">
+              <h3 class="b-animate b-from-left    b-delay03 ">
+                <span>${{this.price}}</span>
+              </h3>
+            </div>
+          </a>
+          <p>
+            <a href="single.html">{{this.title}}</a>
+          </p>
+        </div>
+        {{/each}} {{/each}}
+      </div>
+    </div>
+  </div>
+</div>

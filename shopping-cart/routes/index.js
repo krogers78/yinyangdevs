@@ -42,9 +42,27 @@ router.get('/description/:id', (req, res, next) => {
   
   Product.findById(id, (err, product) => {
     if (err) throw err;
-    res.render('shop/singleProduct', {title: product.title, product: product});
+
+    const splitDesc = product.description.split('.');
+    splitDesc.map(e => {
+      return e.trim()
+    });
+    splitDesc.pop();
+    res.render('shop/singleProduct', {title: product.title, product: product, splitDesc: splitDesc});
+    console.log(splitDesc)
+
   });
 });
 
+router.get('/shop-phones', (req, res, next) => {
+  Product.find((err, docs) => {
+    let productChunks = [];
+    let chunksSize = 3;
+    for (let i = 0; i < docs.length; i += chunksSize) {
+      productChunks.push(docs.slice(i, i + chunksSize));
+    }
+    res.render('shop/phones', { title: 'WD6-International', products: productChunks });
+  });
+});
 
 module.exports = router;
