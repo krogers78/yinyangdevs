@@ -2380,6 +2380,9 @@ a.item_add p.number {
 	a.create {
 	border-radius: 4px;
 }
+.grid-top{
+	padding-top: 4rem;
+}
 .grid-top img{
 	    margin: 0 auto;
 			max-height: 345px;
@@ -2399,3 +2402,18 @@ a.item_add p.number {
 .b-from-left{
 	background: rgba(197, 73, 73,0.64)
 }
+.signinBtns{
+	display: flex;
+}
+.googleBtn{
+	width: 190px;
+	height: 47px;
+	background: url('/images/googleSignBtn.png');
+	background-repeat: no-repeat;
+}
+/* .twitterBtn{
+	width: 190px;
+	height: 47px;
+	background: url('/images/twitterSignBtn.png');
+	background-repeat: no-repeat;
+} */
