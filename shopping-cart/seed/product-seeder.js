@@ -30,6 +30,12 @@ const products = [
     description: 'The World’s First 120Hz Ultra Motion Display for smoother and truer graphics. Audio is powered by Dolby ATMOS and certified by THX for a true cinematic audio experience. Qualcomm Snapdragon 835 with 8GB RAM for optimized performance. **The Razer Phone is a GSM-compatible unlocked phone.',
     price: 700
   }),
+  new Product({
+    imagePath: '/images/galaxynote8.png',
+    title: 'Samsung Galaxy Note 8',
+    description: 'Do Bigger Things - See the bigger picture and communicate in a whole new way. With the Galaxy Note8 in your hand, bigger things are just waiting to happen. More screen means more space to do great things. Go big with the Galaxy Note8\'s 6.3" screen. It\'s the largest ever screen on a Note device and it still fits easily in your hand. Use the S Pen to express yourself in ways that make a difference. Draw your own emojis to show how you feel or write a message on a photo and send it as a handwritten note. Do things that matter with the S Pen. Get crisp photos even when it\'s dark and it\'s difficult to keep your phone steady. The Galaxy Note8\'s dual camera has a wide-angle camera that comes with the great low-light capabilities that you\'ve come to expect from Galaxy phones, while the telephoto camera gives you 2x optical zoom for you to capture the near and far. Both have optical image stabilization so you get steady shots even when zoomed in.',
+    price: 819.99
+  }),
 ];
 
 let done = 0
