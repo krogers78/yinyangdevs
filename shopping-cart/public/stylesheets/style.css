@@ -1426,11 +1426,12 @@ a.add-re:hover{
   font-weight: 600;
   margin-bottom: 1em;
 }
-.account-top span{
+.account-top span, label{
 	font-size:1em;
 	display: block;
 	padding: 0 0 0.5em;
 	color:#A09F9F;
+	font-weight: normal;
 }
 .account-top div{
 	padding:0.5em 0;

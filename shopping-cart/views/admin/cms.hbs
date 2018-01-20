@@ -1,12 +1,12 @@
-<div class="main">
+<div class="container">
   <h1>Wd6-International Inventory</h1>
-  <p><a href="/inventory/add-new" class="btn btn-primary">Add</a></p>
+  <p class="w-25"><a href="/inventory/add-new" class="btn btn-primary w-50">Add</a></p>
   {{# each products }}
   <div class="row">
     {{# each this }}
-    <div class="col-sm-6 col-md-4">
+    <div class="col-sm-6 col-md-4 mt-3">
       <div class="thumbnail">
-        <img class="img-respon" src="{{this.imagePath}}" alt="...">
+        <img class="img-respon" src="{{this.imagePath}}" alt="{{this.title}}" style="max-height: 150px">
         <div class="caption">
           <h3>{{this.title}}</h3>
           <div class="clearfix">

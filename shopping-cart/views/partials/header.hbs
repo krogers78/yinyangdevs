@@ -43,17 +43,17 @@
 
   <div class="container">
     <div class="head-top">
-      <div class="logo">
-        <a href="index.html">
+      {{!-- <div class="logo"> --}}
+        {{!-- <a href="/"> --}}
           {{!--
           <img src="./images/logo.png" alt=""> --}}
-        </a>
-      </div>
+        {{!-- </a> --}}
+      {{!-- </div> --}}
       <div class=" h_menu4">
         <ul class="memenu skyblue">
-          <li class="active grid"><a class="color8" href="/">Home</a></li>
-          <li><a class="color4" href="/shop-phones">Phones</a></li>
-          <li><a class="color6" href="/">Contact</a></li>
+          <li class="{{#if home }}active{{/if}} grid"><a class="color8" href="/">Home</a></li>
+          <li class="{{#if phones }}active{{/if}}"><a class="color4" href="/shop-phones">Phones</a></li>
+          <li class="{{#if contact }}active{{/if}}"><a class="color6" href="/contact-us">Contact</a></li>
         </ul>
       </div>
 

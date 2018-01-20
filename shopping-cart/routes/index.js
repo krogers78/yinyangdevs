@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
     for (let i = 0; i < docs.length; i += chunksSize) {
       productChunks.push(docs.slice(i, i+chunksSize));
     }
-    res.render('shop/index', { title: 'WD6-International', products: productChunks });
+    res.render('shop/index', { title: 'WD6-International', products: productChunks, home: 'yep' });
   });
 });
 router.get('/add-to-cart/:id', (req, res, next) => {
@@ -61,8 +61,12 @@ router.get('/shop-phones', (req, res, next) => {
     for (let i = 0; i < docs.length; i += chunksSize) {
       productChunks.push(docs.slice(i, i + chunksSize));
     }
-    res.render('shop/phones', { title: 'WD6-International', products: productChunks });
+    res.render('shop/phones', { title: 'WD6-International', products: productChunks, phones: 'phones' });
   });
+});
+
+router.get('/contact-us', (req, res, next) => {
+  res.redirect('/');
 });
 
 module.exports = router;
