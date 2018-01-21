@@ -4,12 +4,26 @@ const csrf = require('csurf');
 const passport = require('passport');
 
 const Product = require('../models/product');
+const Order = require('../models/order');
+const Cart = require('../models/cart');
 
 let csrfProtection = csrf();
 router.use(csrfProtection);
 
 router.get('/profile', isLoggedIn, (req, res, next) => {
-  res.render('user/profile', { title: 'Profile'});
+  Order.find({user:req.user},(err, orders)=>{
+    if(err){      
+      return res.write('Error!');
+    }
+    let cart;
+    orders.forEach(order => {
+      cart = new Cart(order.cart);
+      order.items = cart.generateArray();
+    });
+    let successMsg = req.flash('success')[0];
+    res.render('user/profile', { title: 'Profile', orders: orders, successMsg: successMsg, noMessages:!successMsg});
+
+  })
 });
 router.get('/logout', isLoggedIn, (req, res, next) => {
   req.logout();
@@ -37,10 +51,17 @@ router.get('/signup', (req, res, next) => {
 });
 
 router.post('/signup', passport.authenticate('local.signup', {
-  successRedirect: '/user/profile',
   failureRedirect: '/user/signup',
   failureFlash: true
-}));
+}), (req, res, next) => {
+  if (req.session.oldUrl) {
+    let oldUrl = req.session.oldUrl
+    req.session.oldUrl = null;
+    res.redirect(oldUrl);
+  } else {
+    res.redirect('/user/profile');
+  }
+});
 
 router.get('/signin', (req, res, next) => {
   let messages = req.flash('error');
@@ -48,27 +69,46 @@ router.get('/signin', (req, res, next) => {
 });
 
 router.post('/signin', passport.authenticate('local.signin', {
-  successRedirect: '/user/profile',
   failureRedirect: '/user/signin',
   failureFlash: true
-}));
+}), (req, res, next)=>{
+  if(req.session.oldUrl){
+    let oldUrl = req.session.oldUrl
+    req.session.oldUrl = null;
+    res.redirect(oldUrl);
+  }else{
+    res.redirect('/user/profile');
+  }
+});
 router.get('/twitter',
   passport.authenticate('twitter'));
 
 router.get('/twitter/return',
   passport.authenticate('twitter', { 
     failureRedirect: '/user/signin' 
-  }),
-  function (req, res) {
-    res.redirect('/user/profile');
+  }), (req, res, next) => {
+    if (req.session.oldUrl) {
+      let oldUrl = req.session.oldUrl
+      req.session.oldUrl = null;
+      res.redirect(oldUrl);
+    } else {
+      res.redirect('/user/profile');
+    }
   });
 
 router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 router.get('/google/return', passport.authenticate('google', {
-  successRedirect: '/user/profile',
   failureRedirect: '/user/signin',
-}));
+}), (req, res, next) => {
+  if (req.session.oldUrl) {
+    let oldUrl = req.session.oldUrl
+    req.session.oldUrl = null;
+    res.redirect(oldUrl);
+  } else {
+    res.redirect('/user/profile');
+  }
+});
 
 module.exports = router;
 
