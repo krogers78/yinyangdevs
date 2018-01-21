@@ -2,12 +2,6 @@
 
   <div class="header-top">
     <div class="container">
-      <!-- <div class="search">
-      <form>
-      <input type="text" value="Search " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
-      <input type="submit" value="Go">
-    </form>
-  </div> -->
       <div class="header-left">
         <ul>
           {{# if login}} {{# if admin }}
@@ -25,13 +19,19 @@
         <div class="cart box_1">
           <a href="/shopping-cart/">
             <h3>
-              <div class="total">   
-                {{# if session.cart.totalPrice}}
-                  ${{session.cart.totalPrice}}
+              <div class="total">
+                {{#if thatUser}}
+                  {{#if thatUser.cart}}
+                    ${{ thatUser.cart.totalPrice }}
+                  {{else}}
+                    $0.00
+                  {{/if}}
+                {{else if session.cart.totalPrice }}
+                  ${{ session.cart.totalPrice }}
                 {{else}}
                   $0.00
                 {{/if}}
-                 (<span id="simpleCart_quantity" class="simpleCart_quantity"></span>{{session.cart.totalQty}} items)</div>
+                 (<span id="simpleCart_quantity" class="simpleCart_quantity"></span>{{#if thatUser}}{{ thatUser.cart.totalQty }}{{else}}{{session.cart.totalQty}}{{/if}} items)</div>
             </h3>
           </a>
         </div>

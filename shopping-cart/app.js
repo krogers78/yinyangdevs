@@ -52,6 +52,7 @@ app.use(function(req, res, next) {
     if (req.user.local.admin === 1) {
       res.locals.admin = true;
     }
+    res.locals.thatUser = req.user;
   }
   res.locals.session = req.session;
   next();

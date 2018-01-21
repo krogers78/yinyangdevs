@@ -20,6 +20,7 @@ const userSchema = new Schema({
     email: String,
     name: String,
   },
+  cart: Object
 });
 
 userSchema.methods.encryptPassword = function (password) {

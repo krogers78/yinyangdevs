@@ -6,15 +6,14 @@ const passport = require('passport');
 const Product = require('../models/product');
 const Order = require('../models/order');
 const Cart = require('../models/cart');
+const User = require('../models/user');
 
 let csrfProtection = csrf();
 router.use(csrfProtection);
 
 router.get('/profile', isLoggedIn, (req, res, next) => {
   Order.find({user:req.user},(err, orders)=>{
-    if(err){      
-      return res.write('Error!');
-    }
+    if(err) return res.write('Error!');
     let cart;
     orders.forEach(order => {
       cart = new Cart(order.cart);
@@ -22,10 +21,10 @@ router.get('/profile', isLoggedIn, (req, res, next) => {
     });
     let successMsg = req.flash('success')[0];
     res.render('user/profile', { title: 'Profile', orders: orders, successMsg: successMsg, noMessages:!successMsg});
-
   })
 });
 router.get('/logout', isLoggedIn, (req, res, next) => {
+  req.session.cart = null;
   req.logout();
   res.redirect('/')
 });
@@ -72,12 +71,20 @@ router.post('/signin', passport.authenticate('local.signin', {
   failureRedirect: '/user/signin',
   failureFlash: true
 }), (req, res, next)=>{
-  if(req.session.oldUrl){
-    let oldUrl = req.session.oldUrl
+  if (req.session.cart) {
+    req.user.cart = new Cart(req.session.cart);
+  
+    User.findByIdAndUpdate(req.user._id, req.user, err => {
+      if (err) throw err;
+    });
+  }
+
+  if (req.session.oldUrl) {
+    let oldUrl = req.session.oldUrl;
     req.session.oldUrl = null;
     res.redirect(oldUrl);
-  }else{
-    res.redirect('/user/profile');
+  } else {
+    res.redirect('/user/profile')
   }
 });
 router.get('/twitter',
