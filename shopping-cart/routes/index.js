@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+
 // Require all the models needed
 const Product = require('../models/product');
 const Cart = require('../models/cart');
