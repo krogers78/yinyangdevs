@@ -1,6 +1,6 @@
 <div class="container">
-  <h1>Wd6-International Inventory</h1>
-  <p class="w-25"><a href="/inventory/add-new" class="btn btn-primary w-50">Add</a></p>
+  <h1 class="my-4">Wd6-International Inventory</h1>
+  <p class="w-25"><a href="/inventory/add-new" class="btn btn-primary w-50 my-3">Add</a></p>
   {{# each products }}
   <div class="row">
     {{# each this }}
@@ -10,9 +10,9 @@
         <div class="caption">
           <h3>{{this.title}}</h3>
           <div class="clearfix">
-            <div class="price pull-left">${{this.price}}</div>
-            <a href="/inventory/delete-item/{{ this._id }}" class="btn btn-success pull-right" role="button">Delete</a>
-            <a href="/inventory/edit-item/{{ this._id }}" class="btn btn-success pull-right" role="button">Edit</a>
+            <div class="price py-1">${{this.price}}</div>
+            <a href="/inventory/delete-item/{{ this._id }}" class="btn btn-success" role="button">Delete</a>
+            <a href="/inventory/edit-item/{{ this._id }}" class="btn btn-success" role="button">Edit</a>
           </div>
         </div>
       </div>

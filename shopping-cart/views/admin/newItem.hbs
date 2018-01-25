@@ -1,85 +1,90 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3 mt-5">
-    {{# if errors}}
-      <form class="" id='newItem' action='/inventory/add-new/save' method='post' encType="multipart/form-data">
-      
-        <p class="form-group">
-          <label for="title">Title</label>
-          <input type="text" class="form-control" name="title" id="title">
-        </p>
-      
-        <p class="form-group">
-          <label for="price">Price</label>
-          <input type="number" class="form-control" name="price" id="price" min="0" step="0.01">
-        </p>
-      
-        <p class="form-group">
-          <label for="description">Description</label>
-          <p>
-            <textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
-          </p>
-        </p>
-        {{!-- File Upload --}}
-        <p>
-          <label for="phoneImage">Image Upload</label>
-        </p>
-        <div class="form-group">
-          <input type="file" name="phoneImage" class="file" accept="image/png">
-          <div class="input-group col-xs-12">
-            <span class="input-group-addon">
-              <i class="glyphicon glyphicon-picture"></i>
-            </span>
-            <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
-            <span class="input-group-btn">
-              <button class="browse btn btn-primary input-lg" type="button">
-                <i class="glyphicon glyphicon-search"></i> Browse</button>
-            </span>
-          </div>
-        </div>
-        <ul>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-8 col-md-offset-2">
+      {{# if errors}}
+        <form class="" id='newItem' action='/inventory/add-new/save' method='post' encType="multipart/form-data">
+        
+        <ul class="alert alert-danger">
           {{# each errors }}
-            <li>{{ this.msg }}</li>
+          <li class="h5" style="list-style-type:none">{{ this.msg }}</li>
           {{/each}}
         </ul>
-      
-        <input class="btn btn-primary" type="submit" value="Save">
-      </form>
-    {{ else }}
-      <form class="" id='newItem' action='/inventory/add-new/save' method='post' encType="multipart/form-data">
 
-        <p class="form-group">
-          <label for="title">Title</label>
-          <input type="text" class="form-control" name="title" id="title">
-        </p>
 
-        <p class="form-group">
-          <label for="price">Price</label>
-          <input type="number" class="form-control" name="price" id="price" min="0" step="0.01">
-        </p>
-
-        <p class="form-group">
-          <label for="description">Description</label>
-          <p><textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea></p>
-        </p>
-        {{!-- File Upload --}}
-        <p><label for="phoneImage">Image Upload</label></p>
-        <div class="form-group">
-          <input type="file" name="phoneImage" class="file" accept="image/png">
-          <div class="input-group col-xs-12">
-            <span class="input-group-addon">
-              <i class="fa fa-picture-o" aria-hidden="true"></i>
-            </span>
-            <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
-            <span class="input-group-btn">
-              <button class="browse btn btn-primary input-lg" type="button">
-              <i class="fa fa-search" aria-hidden="true"></i> Browse</button>
-            </span>
+          <p class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" name="title" id="title">
+          </p>
+        
+          <p class="form-group">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" name="price" id="price" min="0" step="0.01">
+          </p>
+        
+          <p class="form-group">
+            <label for="description">Description</label>
+            <p>
+              <textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
+            </p>
+          </p>
+          {{!-- File Upload --}}
+          <p>
+            <label for="phoneImage">Image Upload</label>
+          </p>
+          <div class="form-group">
+            <input type="file" name="phoneImage" class="file" accept="image/png">
+            <div class="input-group col-xs-12">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-picture"></i>
+              </span>
+              <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
+              <span class="input-group-btn">
+                <button class="browse btn btn-primary input-lg" type="button">
+                  <i class="glyphicon glyphicon-search"></i> Browse</button>
+              </span>
+            </div>
           </div>
-        </div>
+          
+        
+          <input class="btn btn-primary" type="submit" value="Save">
+        </form>
+      {{ else }}
+        <form class="" id='newItem' action='/inventory/add-new/save' method='post' encType="multipart/form-data">
 
-        <input class="btn btn-primary" type="submit" value="Save">
-      </form>
-    {{/if}}
+          <p class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" name="title" id="title">
+          </p>
+
+          <p class="form-group">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" name="price" id="price" min="0" step="0.01">
+          </p>
+
+          <p class="form-group">
+            <label for="description">Description</label>
+            <p><textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea></p>
+          </p>
+          {{!-- File Upload --}}
+          <p><label for="phoneImage">Image Upload</label></p>
+          <div class="form-group">
+            <input type="file" name="phoneImage" class="file" accept="image/png">
+            <div class="input-group col-xs-12">
+              <span class="input-group-addon">
+                <i class="fa fa-picture-o" aria-hidden="true"></i>
+              </span>
+              <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
+              <span class="input-group-btn">
+                <button class="browse btn btn-primary input-lg" type="button">
+                <i class="fa fa-search" aria-hidden="true"></i> Browse</button>
+              </span>
+            </div>
+          </div>
+
+          <input class="btn btn-primary" type="submit" value="Save">
+        </form>
+      {{/if}}
+    </div>
   </div>
 </div>
 

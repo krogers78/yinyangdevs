@@ -1,16 +1,16 @@
 <div class="row">
-    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+    <p class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
         <div id="success" class="alert alert-success" {{#if noMessages}}hidden{{/if}}>
             {{ successMsg }}
         </div>
-    </div>
+    </p>
 </div>
 
-<div class="row">
+<section class="row">
     <div class="col-md-8 col-md-offset-2">
-        <h1>User Profile</h1>
+        <h1 class="my-3">User Profile</h1>
         <hr>
-        <h2>My Orders</h2>
+        <h2 class="mb-3">My Orders</h2>
         {{# each orders }}
         <div class="panel panel-default">
             <div class="panel-body">
@@ -23,10 +23,10 @@
                     {{/each}}
                 </ul>
             </div>
-            <div class="panel-footer">
+            <p class="panel-footer">
                 <strong>Total Price: ${{ this.cart.totalPrice }}</strong>
-            </div>
+            </p>
         </div>
         {{/each}}
     </div>
-</div>
+</section>

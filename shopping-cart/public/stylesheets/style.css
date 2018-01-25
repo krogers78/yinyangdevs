@@ -2407,15 +2407,39 @@ a.item_add p.number {
 .b-from-left{
 	background: rgba(197, 73, 73,0.64)
 }
-.signinBtns{
+/* .signinBtns{
 	display: flex;
-}
+} */
 .googleBtn{
 	width: 190px;
 	height: 47px;
 	background: url('/images/googleSignBtn.png');
 	background-repeat: no-repeat;
+ }
+.testingthings {
+	display:flex;
+	align-items: center;
+	justify-content: space-around;
 }
+.list-group-item div:nth-of-type(1) {
+	width: 30%;
+	margin-left: 5px;
+}
+.list-group-item div:nth-of-type(2) {
+	width: 100%;
+}
+.label {
+	font-size: 1.5rem;
+}
+.themLogins {
+	display: flex;
+}
+.themLogins .regularLogin, .themLogins input[type="submit"] {
+	width: 90%;
+}
+.themLogins .socialLogin {
+	width: 100%;
+} 
 /* .twitterBtn{
 	width: 190px;
 	height: 47px;

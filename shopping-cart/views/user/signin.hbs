@@ -4,45 +4,70 @@
 
     <div class="account-pass">
       {{#if hasErrors}}
-      <div class="alert alert-danger">
-        {{# each messages}}
-        <p>{{this}}</p>
-        {{/each}}
+        <div class="alert alert-danger">
+          {{#each messages}}
+            <p>{{this}}</p>
+          {{/each}}
+        </div>
       {{/if}}
-      </div>
       
-      <div class="col-md-8 account-top">
+      <div class="col-md-8 col-md-offset-2 account-top">
         <form action="/user/signin" method="POST">
+          {{!-- Email --}}
           <p class="form-group">
             <label for="email">Email</label>
             <input type="text" name="email" id="email">
-         </p>
-         <p class="form-group">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password">
           </p>
-
+          {{!-- Password --}}
+          <p class="form-group">
+             <label for="password">Password</label>
+             <input type="password" name="password" id="password">
+           </p>
           <input type="hidden" name="_csrf" value="{{csrfToken}}">
-
-          <div class="signinBtns">
-            <input type="submit" value="Sign In">
-            <a href="/user/twitter" class="twitterBtn">
-              <img src="/images/twitterSignBtn.png" alt="Twitter login">
-            </a>
-            <a href="/user/google" class="googleBtn"></a>
+          {{!-- Logins --}}
+          <div class="themLogins">
+            {{!-- Normal --}}
+            <div class="regularLogin">
+              <input type="submit" value="Sign In" class="my-2">
+            </div>
+            {{!-- Social --}}
+            <div class="socialLogin">
+              <a class="btn btn-block btn-social btn-twitter" href="/user/twitter">
+                <i class="fa fa-twitter"></i> Sign in with Twitter
+              </a>
+              <a class="btn btn-block btn-social btn-google" href="/user/google">
+                <i class="fa fa-google"></i> Sign in with Google
+              </a>
+            </div>
+          </div>
+          <div>
+            <a href="/user/signup" class="create">Create an account</a>
           </div>
         </form>
       </div>
-      <div class="col-md-4 left-account ">
-        <a href="single.html">
-          <img class="img-responsive " src="images/s1.jpg" alt="">
-        </a>
-        <a href="/user/signup" class="create">Create an account</a>
+    </div>
+  </div>
+</div>
+          {{!-- <div class="signinBtns"> --}}
+            {{!-- <a href="/user/twitter" class="twitterBtn">
+              <img src="/images/twitterSignBtn.png" alt="Twitter login">
+            </a>
+            <a href="/user/google" class="googleBtn"></a> --}}
+          {{!-- </div> --}}
+       {{!-- <div class="col-md-4 left-account mt-5"> --}}
+            {{!-- <a class="btn btn-block btn-social btn-twitter" href="/user/twitter">
+              <i class="fa fa-twitter"></i> Sign in with Twitter
+            </a>
+            <a class="btn btn-block btn-social btn-google" href="/user/google">
+              <i class="fa fa-google"></i> Sign in with Google
+            </a> --}}
+       {{!-- </div> --}}
+       {{!--  <a href="/user/signup" class="create">Create an account</a>
 
         <div class="clearfix"> </div>
       </div>
       <div class="clearfix"> </div>
-    </div>
-  </div>
+    </div> --}}
+ 
 
-</div>
+
