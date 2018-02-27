@@ -19,7 +19,7 @@ const inventory = require('./routes/inventory');
 
 var app = express();
 
-mongoose.connect('localhost:27017/wd6international');
+mongoose.connect('mongodb://kloe:qwaszx>@ds119078.mlab.com:19078/shopping');
 require('./config/passport');
 
 // view engine setup
